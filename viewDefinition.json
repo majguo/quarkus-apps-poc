@@ -10,7 +10,7 @@
                 "commands": [
                     {
                         "displayName": "Test Action",
-                        "path": "customping"
+                        "path": "ping"
                     }
                 ]
             }
@@ -21,7 +21,51 @@
                 "displayName": "Users",
                 "version": "1.0.0",
                 "resourceType": "users",
-                "createUIDefinition": {},
+                "createUIDefinition": {
+                    "parameters": {
+                        "steps": [
+                            {
+                                "name": "add",
+                                "label": "Add user",
+                                "subLabel": {
+                                    "preValidation": "Configure settings",
+                                    "postValidation": "Done"
+                                },
+                                "bladeTitle": "User Configuration",
+                                "bladeSubtitle": "User Configuration",
+                                "elements": [
+                                    {
+                                        "name": "name",
+                                        "label": "User's Full Name",
+                                        "type": "Microsoft.Common.TextBox",
+                                        "defaultValue": "",
+                                        "toolTip": "Provide a full user name.",
+                                        "constraints": {
+                                            "required": true
+                                        }
+                                    },
+                                    {
+                                        "name": "location",
+                                        "label": "User's Location",
+                                        "type": "Microsoft.Common.TextBox",
+                                        "defaultValue": "",
+                                        "toolTip": "Provide a Location.",
+                                        "constraints": {
+                                            "required": true
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "outputs": {
+                            "name": "[steps('add').name]",
+                            "properties": {
+                                "FullName": "[steps('add').name]",
+                                "Location": "[steps('add').location]"
+                            }
+                        }
+                    }
+                },
                 "columns": [
                     {
                         "key": "properties.FullName",
