@@ -10,29 +10,7 @@
                 "commands": [
                     {
                         "displayName": "Test Action",
-                        "path": "testAction"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "Metrics",
-            "properties": {
-                "displayName": "This is my metrics view",
-                "version": "1.0.0",
-                "charts": [
-                    {
-                        "displayName": "Sample chart",
-                        "chartType": "Bar",
-                        "metrics": [
-                            {
-                                "name": "Availability",
-                                "aggregationType": "avg",
-                                "resourceTagFilter": [ "tag1" ],
-                                "resourceType": "Microsoft.Storage/storageAccounts",
-                                "namespace": "Microsoft.Storage/storageAccounts"
-                            }
-                        ]
+                        "path": "customping"
                     }
                 ]
             }
@@ -40,32 +18,28 @@
         {
             "kind": "CustomResources",
             "properties": {
-                "displayName": "Test custom resource type",
+                "displayName": "Users",
                 "version": "1.0.0",
                 "resourceType": "testCustomResource",
-                "createUIDefinition": { },
+                "createUIDefinition": {},
                 "commands": [
                     {
                         "displayName": "Custom Context Action",
-                        "path": "testCustomResource/testContextAction",
+                        "path": "customusers/contextAction",
                         "icon": "Stop",
-                        "createUIDefinition": { }
+                        "createUIDefinition": {}
                     }
                 ],
                 "columns": [
-                    {"key": "name", "displayName": "Name"},
-                    {"key": "properties.myProperty1", "displayName": "Property 1"},
-                    {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
+                    {
+                        "key": "properties.FullName",
+                        "displayName": "Full Name"
+                    },
+                    {
+                        "key": "properties.Location",
+                        "displayName": "Location"
+                    }
                 ]
-            }
-        },
-        {
-            "kind": "Associations",
-            "properties": {
-                "displayName": "Test association resource type",
-                "version": "1.0.0",
-                "targetResourceType": "Microsoft.Compute/virtualMachines",
-                "createUIDefinition": { }
             }
         }
     ]
