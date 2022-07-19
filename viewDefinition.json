@@ -20,16 +20,8 @@
             "properties": {
                 "displayName": "Users",
                 "version": "1.0.0",
-                "resourceType": "testCustomResource",
+                "resourceType": "users",
                 "createUIDefinition": {},
-                "commands": [
-                    {
-                        "displayName": "Custom Context Action",
-                        "path": "customusers/contextAction",
-                        "icon": "Stop",
-                        "createUIDefinition": {}
-                    }
-                ],
                 "columns": [
                     {
                         "key": "properties.FullName",
