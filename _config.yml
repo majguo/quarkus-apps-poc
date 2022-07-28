@@ -1,0 +1,5 @@
+theme: jekyll-theme-cayman
+name: Quarkus Apps on Azure PoC
+description: Quarkus Apps on Azure PoC
+plugins:
+  - jekyll-seo-tag
