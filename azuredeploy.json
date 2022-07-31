@@ -148,6 +148,24 @@
             ]    
           }
         }
+      },
+      {
+          "apiVersion": "2018-09-01-preview",
+          "type": "Microsoft.CustomProviders/resourceProviders",
+          "name": "public",
+          "location": "[parameters('location')]",
+          "properties": {
+              "actions": [
+                  {
+                      "name": "hello",
+                      "routingType": "Proxy",
+                      "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello')]"
+                  }
+              ]
+          },
+          "dependsOn": [
+              "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+          ]
       }
     ]
   }
