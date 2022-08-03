@@ -157,11 +157,23 @@
         "properties": {
             "actions": [
                 {
-                    "name": "hello",
+                    "name": "helloaction",
                     "routingType": "Proxy",
-                    "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
+                    "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/helloaction?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
+                },
+                {
+                    "name": "users/action",
+                    "routingType": "Proxy",
+                    "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello/{RequestPath}/action?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
                 }
-            ]
+            ],
+             "resourceTypes": [
+                  {
+                      "name": "users",
+                      "routingType": "Proxy,Cache",
+                      "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
+                  }
+              ]
         },
         "dependsOn": [
           "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
