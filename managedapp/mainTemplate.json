@@ -73,7 +73,7 @@
   "variables": {
     "functionAppName": "[format('{0}{1}', parameters('funcNamePrefix'), uniqueString(resourceGroup().id))]",
     "storageAccountName": "[format('{0}{1}', parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]",
-    "customProviderName": "quarkusapps"
+    "customProviderName": "public"
   },
   "resources": [
     {
