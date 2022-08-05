@@ -135,3 +135,6 @@ _NCrunch*
 **/.vs/
 
 *.zip
+request_user.json
+response_user.json
+response_users.json
