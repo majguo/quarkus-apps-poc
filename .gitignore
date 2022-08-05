@@ -133,3 +133,7 @@ $RECYCLE.BIN/
 _NCrunch*
 
 **/.vs/
+
+request_user.json
+response_user.json
+response_users.json
