@@ -190,7 +190,7 @@
       "type": "Microsoft.CustomProviders/resourceProviders/users",
       "apiVersion": "2018-09-01-preview",
       "name": "[concat(variables('customProviderName'), '/santa')]",
-      "location": "parameters('location')",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.CustomProviders/resourceProviders/', variables('customProviderName'))]"
       ],

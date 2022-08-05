@@ -10,7 +10,7 @@
         "commands": [
           {
             "displayName": "Test Action",
-            "path": "ping",
+            "path": "helloaction",
             "createUIDefinition": {
               "parameters": {
                 "steps": [
