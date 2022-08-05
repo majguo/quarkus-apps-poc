@@ -106,7 +106,7 @@
       "properties": {
         "Application_Type": "web"
       },
-      "kind":"web"
+      "kind": "web"
     },
     {
       "type": "Microsoft.Web/sites",
@@ -122,7 +122,7 @@
       "properties": {
         "reserved": true,
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "siteConfig": {          
+        "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
           "appSettings": [
             {
@@ -145,39 +145,39 @@
               "name": "WEBSITE_RUN_FROM_PACKAGE",
               "value": "[parameters('packageUri')]"
             }
-          ]    
+          ]
         }
       }
     },
     {
-        "apiVersion": "2018-09-01-preview",
-        "type": "Microsoft.CustomProviders/resourceProviders",
-        "name": "public",
-        "location": "[parameters('location')]",
-        "properties": {
-            "actions": [
-                {
-                    "name": "helloaction",
-                    "routingType": "Proxy",
-                    "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/helloaction?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
-                },
-                {
-                    "name": "users/action",
-                    "routingType": "Proxy",
-                    "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello/{RequestPath}/action?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
-                }
-            ],
-             "resourceTypes": [
-                  {
-                      "name": "users",
-                      "routingType": "Proxy,Cache",
-                      "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
-                  }
-              ]
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+      "apiVersion": "2018-09-01-preview",
+      "type": "Microsoft.CustomProviders/resourceProviders",
+      "name": "public",
+      "location": "[parameters('location')]",
+      "properties": {
+        "actions": [
+          {
+            "name": "helloaction",
+            "routingType": "Proxy",
+            "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/hello/action?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
+          },
+          {
+            "name": "users/action",
+            "routingType": "Proxy",
+            "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/{requestPath}?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
+          }
+        ],
+        "resourceTypes": [
+          {
+            "name": "users",
+            "routingType": "Proxy,Cache",
+            "endpoint": "[concat('https://', parameters('functionAppName'), '.azurewebsites.net/api/{requestPath}?code=', listkeys(resourceId('Microsoft.Web/sites/host', parameters('functionAppName'), 'default'), '2021-02-01').functionKeys.default)]"
+          }
         ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+      ]
     }
   ]
 }
