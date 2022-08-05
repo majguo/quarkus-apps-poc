@@ -1,173 +1,176 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
-    "contentVersion": "0.0.0.1",
-    "views": [
-        {
-            "kind": "Overview",
-            "properties": {
-                "header": "Welcome to your Azure Managed Application",
-                "description": "This managed application is for demo purposes only.",
-                "commands": [
-                    {
-                        "displayName": "Test Action",
-                        "path": "ping",
-                        "createUIDefinition": {
-                            "parameters": {
-                                "steps": [
-                                    {
-                                        "name": "testAction",
-                                        "label": "Test action",
-                                        "subLabel": {
-                                            "preValidation": "Configure settings",
-                                            "postValidation": "Done"
-                                        },
-                                        "bladeTitle": "Test Action Configuration",
-                                        "bladeSubtitle": "Test Action Configuration",
-                                        "elements": [
-                                            {
-                                                "name": "prop1",
-                                                "label": "Property 1",
-                                                "type": "Microsoft.Common.TextBox",
-                                                "defaultValue": "",
-                                                "toolTip": "Provide value for property 1.",
-                                                "constraints": {
-                                                    "required": true
-                                                }
-                                            },
-                                            {
-                                                "name": "prop2",
-                                                "label": "Property 2",
-                                                "type": "Microsoft.Common.TextBox",
-                                                "defaultValue": "",
-                                                "toolTip": "Provide value for property 2.",
-                                                "constraints": {
-                                                    "required": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "outputs": {
-                                    "Prop1": "[steps('testAction').prop1]",
-                                    "Prop2": "[steps('testAction').prop2]"
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "CustomResources",
-            "properties": {
-                "displayName": "Users",
-                "version": "1.0.0",
-                "resourceType": "users",
-                "createUIDefinition": {
-                    "parameters": {
-                        "steps": [
-                            {
-                                "name": "add",
-                                "label": "Add user",
-                                "subLabel": {
-                                    "preValidation": "Configure settings",
-                                    "postValidation": "Done"
-                                },
-                                "bladeTitle": "User Configuration",
-                                "bladeSubtitle": "User Configuration",
-                                "elements": [
-                                    {
-                                        "name": "name",
-                                        "label": "User's Full Name",
-                                        "type": "Microsoft.Common.TextBox",
-                                        "defaultValue": "",
-                                        "toolTip": "Provide a full user name.",
-                                        "constraints": {
-                                            "required": true
-                                        }
-                                    },
-                                    {
-                                        "name": "location",
-                                        "label": "User's Location",
-                                        "type": "Microsoft.Common.TextBox",
-                                        "defaultValue": "",
-                                        "toolTip": "Provide a Location.",
-                                        "constraints": {
-                                            "required": true
-                                        }
-                                    }
-                                ]
-                            }
-                        ],
-                        "outputs": {
-                            "name": "[steps('add').name]",
-                            "properties": {
-                                "FullName": "[steps('add').name]",
-                                "Location": "[steps('add').location]"
-                            }
-                        }
-                    }
-                },
-                "commands": [
-                    {
-                        "displayName": "Custom Context Action",
-                        "path": "users/contextAction",
-                        "icon": "Start",
-                        "createUIDefinition": {
-                            "parameters": {
-                                "steps": [
-                                    {
-                                        "name": "update",
-                                        "label": "Update user",
-                                        "subLabel": {
-                                            "preValidation": "Configure settings",
-                                            "postValidation": "Done"
-                                        },
-                                        "bladeTitle": "User Configuration",
-                                        "bladeSubtitle": "User Configuration",
-                                        "elements": [
-                                            {
-                                                "name": "name",
-                                                "label": "User's Full Name",
-                                                "type": "Microsoft.Common.TextBox",
-                                                "defaultValue": "",
-                                                "toolTip": "Update user's full.",
-                                                "constraints": {
-                                                    "required": true
-                                                }
-                                            },
-                                            {
-                                                "name": "location",
-                                                "label": "User's Location",
-                                                "type": "Microsoft.Common.TextBox",
-                                                "defaultValue": "",
-                                                "toolTip": "Update user's Location.",
-                                                "constraints": {
-                                                    "required": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "outputs": {
-                                    "UpdatedFullName": "[steps('update').name]",
-                                    "UpdatedLocation": "[steps('update').location]"
-                                }
-                            }
-                        }
-                    }
-                ],
-                "columns": [
-                    {
-                        "key": "properties.FullName",
-                        "displayName": "Full Name"
+  "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+  "contentVersion": "0.0.0.1",
+  "views": [
+    {
+      "kind": "Overview",
+      "properties": {
+        "header": "Welcome to your Azure Managed Application",
+        "description": "This managed application is for demo purposes only.",
+        "commands": [
+          {
+            "displayName": "Test Action",
+            "path": "ping",
+            "createUIDefinition": {
+              "parameters": {
+                "steps": [
+                  {
+                    "name": "testAction",
+                    "label": "Test action",
+                    "subLabel": {
+                      "preValidation": "Configure settings",
+                      "postValidation": "Done"
                     },
-                    {
-                        "key": "properties.Location",
-                        "displayName": "Location"
-                    }
-                ]
+                    "bladeTitle": "Test Action Configuration",
+                    "bladeSubtitle": "Test Action Configuration",
+                    "elements": [
+                      {
+                        "name": "prop1",
+                        "label": "Property 1",
+                        "type": "Microsoft.Common.TextBox",
+                        "defaultValue": "",
+                        "toolTip": "Provide value for property 1.",
+                        "constraints": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "name": "prop2",
+                        "label": "Property 2",
+                        "type": "Microsoft.Common.TextBox",
+                        "defaultValue": "",
+                        "toolTip": "Provide value for property 2.",
+                        "constraints": {
+                          "required": true
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "outputs": {
+                  "Prop1": "[steps('testAction').prop1]",
+                  "Prop2": "[steps('testAction').prop2]"
+                }
+              }
             }
-        }
-    ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "CustomResources",
+      "properties": {
+        "displayName": "Users",
+        "version": "1.0.0",
+        "resourceType": "users",
+        "createUIDefinition": {
+          "parameters": {
+            "steps": [
+              {
+                "name": "add",
+                "label": "Add user",
+                "subLabel": {
+                  "preValidation": "Configure settings",
+                  "postValidation": "Done"
+                },
+                "bladeTitle": "User information",
+                "bladeSubtitle": "User information",
+                "elements": [
+                  {
+                    "name": "name",
+                    "label": "User name",
+                    "type": "Microsoft.Common.TextBox",
+                    "defaultValue": "",
+                    "toolTip": "Provide a user name.",
+                    "constraints": {
+                      "required": true
+                    }
+                  },
+                  {
+                    "name": "location",
+                    "label": "User's Location",
+                    "type": "Microsoft.Common.TextBox",
+                    "defaultValue": "",
+                    "toolTip": "Provide a location.",
+                    "constraints": {
+                      "required": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "outputs": {
+              "name": "[steps('add').name]",
+              "properties": {
+                "username": "[steps('add').name]",
+                "location": "[steps('add').location]"
+              }
+            }
+          }
+        },
+        "commands": [
+          {
+            "displayName": "Update user",
+            "path": "users/action",
+            "icon": "Start",
+            "createUIDefinition": {
+              "parameters": {
+                "steps": [
+                  {
+                    "name": "update",
+                    "label": "Update user",
+                    "subLabel": {
+                      "preValidation": "Configure settings",
+                      "postValidation": "Done"
+                    },
+                    "bladeTitle": "User information",
+                    "bladeSubtitle": "User information",
+                    "elements": [
+                      {
+                        "name": "name",
+                        "label": "User name",
+                        "type": "Microsoft.Common.TextBox",
+                        "defaultValue": "",
+                        "toolTip": "Update user name.",
+                        "constraints": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "name": "location",
+                        "label": "User's Location",
+                        "type": "Microsoft.Common.TextBox",
+                        "defaultValue": "",
+                        "toolTip": "Update user's location.",
+                        "constraints": {
+                          "required": true
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "outputs": {
+                  "name": "[steps('update').name]",
+                  "properties": {
+                    "username": "[steps('update').name]",
+                    "location": "[steps('update').location]"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "columns": [
+          {
+            "key": "properties.username",
+            "displayName": "User name"
+          },
+          {
+            "key": "properties.location",
+            "displayName": "Location"
+          }
+        ]
+      }
+    }
+  ]
 }
