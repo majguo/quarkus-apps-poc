@@ -12,5 +12,5 @@ The relevant zip packages can be found from:
 Here're some useful links:
 
 * [Tutorial - custom actions & resources - Azure Managed Applications](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider?tabs=azurecli-interactive)
-* [Extending a Managed Application with a Custom Provider](https://docs.microsoft.com/azure/azure-resource-manager/custom-providers/create-custom-provider?tabs=azure-cli)
+* [Quickstart: Create a custom provider and deploy custom resources](https://docs.microsoft.com/azure/azure-resource-manager/custom-providers/create-custom-provider?tabs=azure-cli)
 * [Extending a Managed Application with a Custom Provider](https://github.com/raosuhas/azure-quickstart-templates/tree/master/201-managed-application-with-customprovider)
