@@ -30,7 +30,7 @@
         },
         "zipFileBlobUri": {
             "type": "string",
-            "defaultValue": "https://github.com/Azure/azure-quickstart-templates/raw/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+            "defaultValue": "https://majguo.github.io/quarkus-apps-poc/deprecated-csharp-extensions.zip",
             "metadata": {
                 "description": "The Uri to the uploaded function zip file"
             }
