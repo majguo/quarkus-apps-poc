@@ -2,6 +2,11 @@
 
 The managed app and extensions (Azure Functions using C# Script) in this branch is deprecated and only for backup purpose, please switch to [main](https://github.com/majguo/quarkus-apps-poc/tree/main) branch which is in active development.
 
+The relevant zip packages can be found from:
+
+* [deprecated-managedapp-for-csharp-extensions.zip](https://majguo.github.io/quarkus-apps-poc/deprecated-managedapp-for-csharp-extensions.zip)
+* [deprecated-csharp-extensions.zip](https://majguo.github.io/quarkus-apps-poc/deprecated-csharp-extensions.zip)
+
 ## References
 
 Here're some useful links:
