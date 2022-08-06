@@ -6,6 +6,7 @@ The relevant zip packages can be found from:
 
 * [deprecated-managedapp-for-csharp-extensions.zip](https://majguo.github.io/quarkus-apps-poc/deprecated-managedapp-for-csharp-extensions.zip)
 * [deprecated-csharp-extensions.zip](https://majguo.github.io/quarkus-apps-poc/deprecated-csharp-extensions.zip)
+  > **Note** This is a copy of [functionpackage.zip](https://github.com/Azure/azure-quickstart-templates/raw/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip)
 
 ## References
 
