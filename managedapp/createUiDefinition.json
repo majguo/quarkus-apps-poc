@@ -37,22 +37,13 @@
               "constraints": {
                 "required": true
               }
-            },
-            {
-              "name": "zipFileBlobUri",
-              "type": "Microsoft.Common.TextBox",
-              "defaultValue": "https://github.com/Azure/azure-quickstart-templates/raw/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
-              "label": "The Uri to the uploaded function zip file",
-              "toolTip": "The Uri to the uploaded function zip file",
-              "visible": true
             }
           ]
         }
       ],
       "outputs": {
         "funcname": "[steps('applicationSettings').funcname]",
-        "storageName": "[steps('applicationSettings').storagename]",
-        "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
+        "storageName": "[steps('applicationSettings').storagename]"
       }
     }
   }
