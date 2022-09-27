@@ -13,7 +13,7 @@ public class ActionHandler extends FunctionInvoker<User, User> {
 
     @FunctionName("action")
     public HttpResponseMessage execute(
-            @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION, route = "hello/action") HttpRequestMessage<Optional<User>> request,
+            @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS, route = "hello/action") HttpRequestMessage<Optional<User>> request,
             ExecutionContext context) {
         String requestPath = request.getHeaders().get("x-ms-customproviders-requestpath");
         User user = request.getBody()

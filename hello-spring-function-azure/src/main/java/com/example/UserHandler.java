@@ -22,7 +22,7 @@ public class UserHandler extends FunctionInvoker<User, User> {
 
     @FunctionName("createGetDeleteUser")
     public HttpResponseMessage createGetDeleteUser(
-            @HttpTrigger(name = "request", methods = {HttpMethod.PUT, HttpMethod.GET, HttpMethod.DELETE}, authLevel = AuthorizationLevel.FUNCTION,
+            @HttpTrigger(name = "request", methods = {HttpMethod.PUT, HttpMethod.GET, HttpMethod.DELETE}, authLevel = AuthorizationLevel.ANONYMOUS,
                     route = "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceproviders/{minirpname}/users/{username}") HttpRequestMessage<Optional<User>> request,
             @BindingName("username") String username,
             ExecutionContext context) {
@@ -65,7 +65,7 @@ public class UserHandler extends FunctionInvoker<User, User> {
 
     @FunctionName("getUsers")
     public HttpResponseMessage getUsers(
-            @HttpTrigger(name = "request", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION,
+            @HttpTrigger(name = "request", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS,
                     route = "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceproviders/{minirpname}/users") HttpRequestMessage<Optional<User>> request,
             ExecutionContext context) {
         context.getLogger().info("Request path: " + request.getHeaders().get("x-ms-customproviders-requestpath"));
@@ -90,7 +90,7 @@ public class UserHandler extends FunctionInvoker<User, User> {
 
     @FunctionName("userAction")
     public HttpResponseMessage executeUserAction(
-            @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION,
+            @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS,
                     route = "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceproviders/{minirpname}/users/{username}/action") HttpRequestMessage<Optional<User>> request,
             @BindingName("username") String username,
             ExecutionContext context) {
